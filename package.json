@@ -1,8 +1,13 @@
 {
   "name": "react-canvas-sign",
   "version": "0.0.2",
-  "description": "react封装cavas，可以用于简单签名，绘制",
-  "author": "smukkedreng",
+  "description": "React canvas component to draw",
+  "author": "smukkedreng <568420804@qq.com>",
+  "homepage": "https://github.com/StoryKing123/react-canvas-sign",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/StoryKing123/react-canvas-sign"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -p tsconfig.build.json && vite build",
