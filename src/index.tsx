@@ -60,7 +60,10 @@ const Canvas = forwardRef<Ref, CanvasProps>((props, ref) => {
   };
   const handleMouseMove = (e: MouseEvent) => {
     const canvasElement = getCanvasByRef();
-    draw(e.pageX - canvasElement.offsetLeft, e.pageY - canvasElement.offsetTop);
+    draw(
+      e.clientX - canvasElement.getBoundingClientRect().left,
+      e.clientY - canvasElement.getBoundingClientRect().top
+    );
   };
   const handleMouseUp = (e: MouseEvent) => {
     endDraw();
@@ -71,9 +74,19 @@ const Canvas = forwardRef<Ref, CanvasProps>((props, ref) => {
     isPainting.current = true;
     handleStyleInit();
     context.beginPath();
+    // console.log(e.offsetY);
+    // console.log(e.clientY);
+    // console.log(e.y);
+    // console.log(e.pageY);
+    // console.log("======");
+    // console.log();
+    // console.log(canvasElement.getBoundingClientRect().left);
+    // console.log(canvasElement.offsetLeft);
+    // console.log('===')
+
     context.moveTo(
-      e.pageX - canvasElement.offsetLeft,
-      e.pageY - canvasElement.offsetTop
+      e.clientX - canvasElement.getBoundingClientRect().left,
+      e.clientY - canvasElement.getBoundingClientRect().top
     );
   };
   const handleMouseLeave = (e: MouseEvent) => {
@@ -84,8 +97,8 @@ const Canvas = forwardRef<Ref, CanvasProps>((props, ref) => {
     e.preventDefault();
     const canvasElement = getCanvasByRef();
     beforeDraw(
-      e.changedTouches[0].pageX - canvasElement.offsetLeft,
-      e.changedTouches[0].pageY - canvasElement.offsetTop
+      e.changedTouches[0].pageX - canvasElement.getBoundingClientRect().left,
+      e.changedTouches[0].pageY - canvasElement.getBoundingClientRect().top
     );
   };
 

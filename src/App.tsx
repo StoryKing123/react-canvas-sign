@@ -11,31 +11,33 @@ function App() {
     <div className="App">
       <button
         onClick={() => {
-          console.log(canvasRef.current.undo());
+          canvasRef.current.undo();
         }}
       >
         undo
       </button>
-      {/* <button
+      <button
         onClick={() => {
-          handleClear();
+          canvasRef.current.clear();
         }}
       >
         empty
       </button>
-      <button
+      {/* <button
         onClick={() => {
           handleSave();
         }}
       >
         save
-      </button> */}
-      <Canvas
-        ref={canvasRef}
-        height={400}
-        width={800}
-        contextProps={{}}
-      ></Canvas>
+      </button>  */}
+      <div style={{ border: "1px solid black", display: "inline-block" }}>
+        <Canvas
+          ref={canvasRef}
+          height={400}
+          width={800}
+          contextProps={{}}
+        ></Canvas>
+      </div>
     </div>
   );
 }
