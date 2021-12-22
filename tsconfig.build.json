@@ -1,0 +1,23 @@
+{
+  // "extends": "./tsconfig.json", // 拓展 tsconfig.json 的配置
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    // "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "Node",
+    // "resolveJsonModule": true,
+    // "isolatedModules": true,
+    // "declarationMap": false,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationDir": "lib",
+    "jsx": "react-jsx",
+    "esModuleInterop": false,
+    "module": "ESNext",
+    // "outFile": "dist/index.d.ts"
+  },
+  // "include": ["src"] // 编译目标仅为 src 文件夹下的文件
+  "files": ["src/index.tsx"]
+}
