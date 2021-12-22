@@ -58,12 +58,18 @@ const Canvas = forwardRef<Ref, CanvasProps>((props, ref) => {
     }
     return canvasElement;
   };
+
+  const calcMouseCoord = (e: MouseEvent) => {
+    const canvasElement = getCanvasByRef();
+    // const x = e.clientX - canvasElement.clientLeft
+  };
   const handleMouseMove = (e: MouseEvent) => {
     const canvasElement = getCanvasByRef();
-    draw(
-      e.clientX - canvasElement.getBoundingClientRect().left,
-      e.clientY - canvasElement.getBoundingClientRect().top
-    );
+    draw(e.offsetX, e.offsetY);
+    // draw(
+    //   e.clientX - canvasElement.clientLeft,
+    //   e.clientY - canvasElement.clientTop
+    // );
   };
   const handleMouseUp = (e: MouseEvent) => {
     endDraw();
@@ -84,10 +90,11 @@ const Canvas = forwardRef<Ref, CanvasProps>((props, ref) => {
     // console.log(canvasElement.offsetLeft);
     // console.log('===')
 
-    context.moveTo(
-      e.clientX - canvasElement.getBoundingClientRect().left,
-      e.clientY - canvasElement.getBoundingClientRect().top
-    );
+    draw(e.offsetX, e.offsetY);
+    // context.moveTo(
+    //   e.clientX - canvasElement.clientLeft,
+    //   e.clientY - canvasElement.clientTop
+    // );
   };
   const handleMouseLeave = (e: MouseEvent) => {
     isPainting.current = false;
@@ -188,9 +195,9 @@ const Canvas = forwardRef<Ref, CanvasProps>((props, ref) => {
     mousedown: handleMouseDown,
     mouseup: handleMouseUp,
     mouseleave: handleMouseLeave,
-    touchstart: handleTouchStart,
-    touchmove: handleTouchMove,
-    touchend: handleTouchEnd,
+    // touchstart: handleTouchStart,
+    // touchmove: handleTouchMove,
+    // touchend: handleTouchEnd,
   });
 
   return (
