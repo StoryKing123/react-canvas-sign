@@ -2,6 +2,8 @@ import { useRef } from "react";
 import "./App.css";
 // import Canvas from "react-canvas-sign";
 import Canvas from "./index";
+// import CanvasDraw from "react-canvas-draw";
+
 // import Canvas from "../dist/react-canvas.es";
 
 function App() {

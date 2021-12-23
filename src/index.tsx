@@ -77,6 +77,7 @@ const Canvas = forwardRef<Ref, CanvasProps>((props, ref) => {
   const handleMouseDown = (e: MouseEvent) => {
     const canvasElement = getCanvasByRef();
     const context = getContextByRef();
+    
     isPainting.current = true;
     handleStyleInit();
     context.beginPath();
